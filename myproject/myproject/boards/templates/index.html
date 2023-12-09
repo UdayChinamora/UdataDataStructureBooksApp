@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<style>
+  #header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+	.uday{
+background-color:red;
+}
+#uday1{
+background-color:red;
+}
+
+body {
+
+            background-image:url('https://th.bing.com/th?id=OSK.HEROocjiR_aWsPqAy8aUEsEhA9rA-6-pQaXH-d4uzWT36IA&w=384&h=228&c=1&rs=2&o=6&dpr=1.2&pid=SANGAM');;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			 background-repeat: no-repeat;
+            background-attachment: fixed;
+			background-size: 100% 100%;
+		}
+		header {
+			background-image:url("https://a-z-animals.com/media/2021/01/mammals-400x300.jpg");
+			color:green;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			margin: 0;
+		}
+		h2 {
+			color:red;
+			padding: 20px;
+			text-align: center;
+			font
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 20px auto;
+			max-width: 960px;
+		}
+		.card {
+			background-color: #fff;
+			border: 1px solid #ddd;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			width: 300px;
+		}
+		.card img {
+			height: 180px;
+			margin-bottom: 10px;
+			width: 180px;
+		}
+		.card h2 {
+			font-size: 1.2em;
+			margin: 0;
+		}
+		.card p {
+			margin: 0;
+			padding: 5px;
+		}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/my_books">Books list</a>
+	<a href="/sorted_book_list">Sorted by Title Books List</a>
+	<a href="/map_book_list">Delete book Using HashMap</a>
+	<a href="/edited_book_list">Edit  Using LinkedList</a>
+	<a href="/enqueue_view">Enqueue and PrintQue Results</a>
+	<a href="queue_book_view">Queue Add Book Reading List</a>
+	<a href="/search_books">Search Books</a>
+
+
+
+
+
+
+	  <div class="column">
+    <img src="https://www.wcs.org/assets/wcsorg/email-signup-tiger-c51b66b3ede468b6f71c75d3f3dbf3c06e6319db34aa60849284c4e5fea69b1e.jpg" alt="Stand for Animals" style="width:80%">
+  </div>
+</div>
+
+<header id="header">
+		<h1>Uday Books Management App </h1>
+
+</header>
+
+<span style="font-size:35px;cursor:pointer;color:blue;" onclick="openNav()">&#9776;Open Links</span>
+
+<main>
+
+
+	<br>
+		<div class="card-container">
+			<div class="container">
+		<div class="card">
+			<img src="https://target.scene7.com/is/image/Target/GUEST_31e8d33f-4216-47a0-9866-f66368eabede?wid=800&hei=800&qlt=80&fmt=webp" alt="The Alchemist">
+			<a href="/books/12/"><h2>The Alchemist</h2></a>
+			<p>
+			The Alchemist is a novel by Brazilian author Paulo Coelho that tells the story of Santiago,
+				a young shepherd who follows his dream of finding a treasure in Egypt.
+			</p>
+		</div>
+
+		<div class="card">
+			<img src="https://th.bing.com/th/id/OIP.XDMPtURvAJYWd-ZfY5A6pgHaLU?rs=1&pid=ImgDetMain" alt="Dog">
+			<a href="/books/14/"><h2>The Chronicles of Narnia</h2></a>
+			<p>
+				The Chronicles of Narnia is a series of seven portal fantasy novels by British author C. S. Lewis.
+				The series has been adapted for radio, television, the stage, film and video games
+			</p>
+		</div>
+
+
+		<div class="card">
+			<img src="https://target.scene7.com/is/image/Target/GUEST_af7189eb-efab-4b43-8065-892e0bcbd014?wid=800&hei=800&qlt=80&fmt=webp">
+
+			<a href="/books/7/"><h2>The Da Vinci Code</h2></a>
+
+			<p>The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown that explores an alternative religious history
+				based on the Merovingian bloodline of Jesus and Mary </p>
+		</div>
+
+
+
+
+
+		<div class="card">
+			<img src="https://m.media-amazon.com/images/I/51xJbFMRsxL._SL500_.jpg" alt="Harry">
+			<a href="/books/6/"><h2>Harry Potter and the Philosopher's Stone</h2></a>
+			<p> Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday,
+				when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.</p>
+		</div>
+
+			</div>
+		</div>
+
+	</main>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+<footer>
+		<p id="uday1">&copy; 2023 Uday Books Management</p>
+	</footer>
+</body>
+</html>

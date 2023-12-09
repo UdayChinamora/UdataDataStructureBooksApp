@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  #header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555;
+}
+
+  .button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0069d9;
+}
+</style>
+<header id="header">
+		<h1>Uday Books Kingdom </h1>
+</header>
+  <h1>Books List</h1>
+
+
+<table>
+  {% for book in books %}
+    {% if forloop.counter0|divisibleby:10 %}
+      <tr>
+    {% endif %}
+    <td><a href="{% url 'book_detail' book.pk %}">{{ book.title}} </a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp </td>
+    {% if forloop.counter0|add:1|divisibleby:10 or forloop.last %}
+
+      </tr>
+    {% endif %}
+  {% empty %}
+    <tr><td>No books found.</td></tr>
+  {% endfor %}
+</table>
+
+<br>
+
+
+<a href="/search_books"  class="button">Search Books</a><br><br>
+
+
+<a href="/" class="button">Back to Homepage</a><br><br><br>
+{% endblock %}

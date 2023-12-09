@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Search for books using Title</h1> <br><br><br>
+<form action="{% url 'search_books' %}" method="GET">
+  <input type="text" name="search_query" placeholder="Enter book title">
+  <button type="submit">Search</button>
+</form>
+
+{% if error_message %}
+  <p>{{ error_message }}</p>
+{% else %}
+  {% if searched_books %}
+    <h2>Search Results:</h2>
+
+<ul>
+      {% for book in searched_books %}
+   <h1>{{ book.title }}</h1>
+
+  <p>  <a href="{% url 'book_detail' book.id %}">
+  <img src="{{ book.image_url }}">
+  </a>
+ </p>
+
+   <p><strong>ID:</strong> {{ book.id }}</p>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Published Date :</strong> {{ book.published_date }}</p>
+  <p><strong>Status:</strong> {{ book.status }}</p>
+  <p><strong>Genre:</strong> {% for g in genre %}{{ g.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+        <h2>Reviews</h2>
+  {% if reviews %}
+    <ul>
+      {% for review in reviews %}
+        <li>{{ review.comment }} ({{ review.rating }}/5)</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No reviews yet.</p>
+  {% endif %}
+
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endif %}
+
+<br><br>
+
+
+
+<a href="/my_books">Back to List of  Books</a><br><br>
+<a href="/">Back to Homepage</a><br><br><br>
+</body>
+</html>

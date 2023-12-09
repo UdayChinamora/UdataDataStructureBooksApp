@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Users reading list using Queue</h1>
+ {% extends 'base.html' %}
+
+{% block content %}
+<h1>Book Queue</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="book_title">Enter a book title:</label>
+    <input type="text" id="book_title" name="book_title" required>
+    <button type="submit">Add</button>
+</form>
+<ul>
+    {% for book in book_queue.queue %}
+    <li>{{ book }} <a href="?remove">Remove</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>

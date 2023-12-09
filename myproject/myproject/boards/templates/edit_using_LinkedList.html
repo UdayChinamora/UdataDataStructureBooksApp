@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>A page to edit book details in the django template form and save them to the database table using a linked list.</p>
+<h1>Book List</h1>
+<ul>
+{% for book in books %}
+    <li>{{ book.book_id }}: {{ book.title }}</li>
+{% endfor %}
+</ul>
+<h2>Edit a Book</h2>
+<form method="POST" action="{% url 'edit_book' %}">
+    {% csrf_token %}
+    <label for="book_id">Book ID:</label>
+    <input type="text" id="book_id" name="book_id" required><br><br>
+    <label for="new_title">New Title:</label>
+    <input type="text" id="new_title" name="new_title" required><br><br>
+    <label for="new_author">New Author:</label>
+    <input type="text" id="new_author" name="new_author" required><br><br>
+    <label for="new_published_date">New Published Date:</label>
+    <input type="date" id="new_published_date" name="new_published_date" required><br><br>
+    <label for="new_price">New Price:</label>
+    <input type="number" id="new_price" name="new_price" required><br><br>
+    <label for="new_image_url">New Image URL:</label>
+    <input type="url" id="new_image_url" name="new_image_url" ><br><br>
+    <button type="submit">Edit</button>
+</form>
+<br><br>
+<a href="/search_books">Search Books</a><br><br>
+
+<a href="/my_books">Back to List of  Books</a><br><br>
+<a href="/">Back to Homepage</a><br><br><br>
+</body>
+</html>

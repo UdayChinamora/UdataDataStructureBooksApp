@@ -1,0 +1,34 @@
+{% load sort_by %}
+
+<h1>Books List</h1>
+
+<!-- Display buttons for sorting by different criteria -->
+<form method="get">
+    <button type="submit" name="sort" value="title">Sort by title</button>
+    <button type="submit" name="sort" value="author">Sort by author</button>
+    <button type="submit" name="sort" value="price">Sort by price</button>
+</form>
+
+<!-- Display the books in a table -->
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published Date</th>
+        <th>Price</th>
+        <th>Genre</th>
+        <th>Image</th>
+        <th>Status</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.published_date }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.genre.all|join:", " }}</td>
+        <td><img src="{{ book.image_url.url }}" alt="{{ book.title }}"></td>
+        <td>{{ book.status }}</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ book.title }}</h1>
+<p>  <a href="{% url 'book_detail' book.id %}">
+  <img src="{{ book.image_url }}">
+</a>
+</p>
+   <p><strong>ID:</strong> {{ book.id }}</p>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Published Date :</strong> {{ book.published_date }}</p>
+  <p><strong>Status:</strong> {{ book.status }}</p>
+  <p><strong>Genre:</strong> {% for g in genre %}{{ g.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+  <h2>Reviews</h2>
+  {% if reviews %}
+    <ul>
+      {% for review in reviews %}
+        <li>{{ review.comment }} ({{ review.rating }}/5)</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No reviews yet.</p>
+  {% endif %}
+
+
+<a href="/search_books">Search Books</a><br><br>
+
+<a href="/my_books" >Back to List of  Books</a><br><br>
+<a href="/">Back to Homepage</a><br><br><br>
+{% endblock %}

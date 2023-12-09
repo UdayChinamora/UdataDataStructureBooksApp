@@ -1,0 +1,11 @@
+
+{% block content %}
+  <h1>BookList</h1>
+  <ul>
+    {% for book in books %}
+      <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></li>
+    {% empty %}
+      <li>No books found.</li>
+      {% endfor %}
+ </ul>
+{% endblock %}

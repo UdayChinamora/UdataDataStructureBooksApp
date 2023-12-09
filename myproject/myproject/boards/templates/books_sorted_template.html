@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+
+This is a sorted list of books using Sorting Method
+
+</h1>
+{% for book in sorted_books %}
+    <p>{{ book.title }}</p>
+{% endfor %}
+
+<a href="/search_books">Search Books</a><br><br>
+
+<a href="/my_books">Back to List of  Books</a><br><br>
+<a href="/">Back to Homepage</a><br><br><br>
+</body>
+</html>
